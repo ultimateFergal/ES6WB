@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        button {
+            font-size: 100px;
+        }
+        .on {
+            background: #ffc600;
+        }
+    </style>
+    
+    <button id="pushy">Push Me</button>
+
+    <script>
+        // When you really need 'this'
+        const button = document.querySelector('#pushy');
+        button.addEventListener('click', () => {
+            console.log(this);
+            this.classList.toggle('on');
+        });
+
+        const button1 = document.querySelector('#pushy');
+        button1.addEventListener('click', function() {
+            console.log(this);
+            this.classList.toggle('on');
+        });
+
+        // When you need a method to bind to an object
+        const person = {
+            points: 23,
+            score: () => {
+                this.points++;  
+            }
+        }
+
+        // When you need a method to bind to an object
+        const person1 = {
+            points: 23,
+            score: function() {
+                this.points++;  
+            }
+        }
+
+        // WHen you need to add a prototype method
+        class Car {
+            constructor(make, colour) {
+                this.make = make;
+                this.colour = colour;
+            }
+        }
+
+        const beemer = new Car('bmw', 'blue');
+        const subie = new Car('Subaru', 'white');
+
+        Car.prototype.summarize = () => {
+            return `This car is a ${this.make} in the colour ${this.colour}`;
+        }
+
+        Car.prototype.summarize1 = function() {
+            return `This car is a ${this.make} in the colour ${this.colour}`;
+        }
+
+        // When you need arguments object
+        const orderChildren = () => {
+            const children = Array.from(arguments);
+            return children.map((child, i) => {
+                return `${child} was child #${i + 1}`
+            })
+        }
+
+        // console.log(orderChildren('jill', 'anna', 'luis'));
+
+        const orderChildren1 = function () {
+            const children = Array.from(arguments);
+            return children.map((child, i) => {
+                return `${child} was child #${i + 1}`
+            })
+        }
+
+        console.log(orderChildren1('jill', 'anna', 'luis'));
+    </script>
+</body>
+</html>

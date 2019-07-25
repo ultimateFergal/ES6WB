@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    const names = ['juan', 'fer', 'lux'];
+
+    const fullNames = names.map(function(name) {
+        return `${name} perez`;
+    });
+
+    const fullNames2 = names.map((name)  => {
+        return `${name} perez`;
+    });
+
+    const fullNames3 = names.map((name) => `${name} perez`);
+
+    const fullNames4 = names.map(() => `cool perez`);
+
+    console.log(fullNames);
+    console.log(fullNames2);
+    console.log(fullNames3);
+    console.log(fullNames4);
+
+    // All previous functions are ANONYMOUS FUNCIONTS, they dont have a name
+    const sayTheName = (name) => console.log(`${name}`); // but they can be put in variables
+
+    // Name function
+    function sayName(name) {
+        console.log(name);
+    }
+
+    const race = '100m Dash';
+    const winners = ['Hunter Gath', 'Singa Song', 'Imda Bos'];
+
+    const win = winners.map((winner, i) => 
+        ({  // So it knows I'm passing an object literal and not a function block
+            name: winner,
+            race,
+            place: i + 1
+        })
+   )// implicit return with on object literal
+
+   const ages = [23, 34 , 45, 65 , 34 ,34, 24, 54, 4, 78, 87, 60]
+
+   const old = ages.filter( age => age >= 60) ;
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li data-time="5:17">Flexbox Video</li>
+        <li data-time="8:22">Flexbox Video</li>
+        <li data-time="2:34">Redux Video</li>
+        <li data-time="2:45">Flexbox Video</li>
+        <li data-time="4:59">Flexbox Video</li>
+        <li data-time="9:34">Redux Video</li>
+        <li data-time="5:35">Flexbox Video</li>
+        <li data-time="7:23">Redux Video</li>
+        <li data-time="8:45">Flexbox Video</li>
+        <li data-time="2:57">Flexbox Video</li>
+        <li data-time="0:23">Flexbox Video</li>
+    </ul>
+    <script>
+        // Select all the list items on the page and convert to array
+        // const items = document.querySelectorAll('[data-time]'); // Nodelist
+        const items = Array.from(document.querySelectorAll('[data-time]')); // Nodelist
+
+        // Filter for only the elements that contain the word 'Flexbox'
+        const filtered = items
+            .filter(item => item.textContent.includes('Flexbox'))
+            // Map down to a list of time strings
+            .map(item => item.dataset.time) // data-time
+            // Map to an array of seconds
+            .map(timeCode => {
+                const parts = timeCode.split(':').map(part => parseFloat(part));
+                console.log(parts);
+                return (parts[0] * 60) * parts[1];
+            })
+            // Reduce to get load
+            .reduce((runningTotal, seconds) => runningTotal + seconds, 0);
+
+            // this can also be don in a single reduce(), 
+            console.log(filtered);
+            
+    </script>
+</body>
+</html>
