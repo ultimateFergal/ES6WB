@@ -1,0 +1,24 @@
+{
+    "id": "22",
+    "type": "band",
+    "releaseDate": "29/07/2018",
+    "image": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgFBgcGBQgHBgcJCAgJDBMMDAsLDBgREg4THBgdHRsYGxofIywlHyEqIRobJjQnKi4vMTIxHiU2OjYwOiwwMTD/2wBDAQgJCQwKDBcMDBcwIBsgMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDD/wgARCAD+AXIDASIAAhEBAxEB/8QAGwAAAgMBAQEAAAA"
+}
+{
+    "id":"2",
+    "idPlayLIst": "2",
+    "idUser": "1",
+    "songs": {
+        "id": "2",
+        "title": "song title 1",
+        "album": "album 2 artist 1",
+        "artist": "artist 1",
+        "length": 248
+    }   
+}
+    
+// peticion busqueda de canciones
+
+{
+    "keyWord": "ejemplo búsqueda"
+}

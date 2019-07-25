@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    function setWidth() {
+        var measure = 100;
+        console.log(measure);
+    }
+
+    setWidth();
+    // error coz is not defined in this scope
+    // console.log(measure);
+
+var measure1;
+    function setWidth() {
+        measure1 = 2001;
+        console.log(measure1);
+    }
+
+    setWidth();
+    // in and outside the scope
+    console.log(measure1);
+
+    var width = 100;
+    // Var variables can be updated or redefined
+    console.log(width);
+
+    var width = 200;
+    console.log(width);
+
+    var width = 300;
+    console.log(width);
+
+
+    let height = 200;
+    const key = 'abc123'; // const variables cannot be updated
+    let points = 50;
+    let winner = false;
+
+    // let points = 60; // I can not redeclare twice in the same scope
+
+    if (points > 40 ) {
+        console.log('it ran');
+        let winner = true;
+        console.log(winner, 'winner inside');
+    }
+
+    console.log(winner, 'winner outside');
+
+    const person = {
+        name: 'Fer',
+        age: 28
+    }
+    
+    // person = { name: 'Fernando' } // wont be possible to redefine the const object
+    person.name = 'Fercho'; // although I can change the object's attributes
+    console.log(person);
+
+    const fer = Object.freeze(person); // wont let changes on object fer
+
+
+    (function() { // prevent leaking of variables to exterior scope
+        var namef = 'fer'
+        console.log(namef, 'namef inside scope')
+    })();
+
+    // This is a block
+    { // prevent leaking of variables to exterior scope
+        const nameff = 'fer'
+        console.log(nameff, 'nameff inside scope');
+    }
+
+    for (var i = 0; i < 10; i++) {
+        console.log(i);
+        setTimeout(function() {
+            console.log('The number is ' + i);
+        }) // with var i leaked outside this scope
+    }
+
+    for (let i = 0; i < 10; i++) {
+        console.log(i);
+        setTimeout(function() {
+            console.log('The number is ' + i);
+        }, 1000)// let won let leake outside this for scope
+    }
+</script>
+    
+</body>
+</html>
